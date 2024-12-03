@@ -28,13 +28,13 @@
                         <div class="order-item">
                             <img src="${item.image}" alt="${item.title}" />
                             <p>${item.title}</p>
-                            <h2>$${item.price}.00</h2>
+                            <h2>₱${item.price}.00</h2>
                         </div>
                     `;
                     total += item.price;
                 });
     
-                orderSummary += `<h3>Total: $${total}.00</h3>`;
+                orderSummary += `<h3>Total: ₱${total}.00</h3>`;
                 document.getElementById('order-summary').innerHTML = orderSummary;
             }
         }

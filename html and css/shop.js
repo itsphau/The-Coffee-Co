@@ -2,52 +2,52 @@ const product = [
     {
         id: 0,
         image: '../images/HC.png',
-        title: 'Classic Honey 70ml<br>(Original Honey)',
-        price: 39,
+        title: 'Classic Americano <br>(Hot/Iced)',
+        price: 115,
     },
     {
         id: 0,
         image: '../images/HC.png',
-        title: 'Classic Honey 85ml<br>(Original Honey)',
-        price: 49,
+        title: 'Smooth Latte <br> (Hot/Iced)',
+        price: 155,
     },
     {
         id: 0,
         image: '../images/HC.png',
-        title: 'Classic Honey 100ml<br>(Original Honey)',
-        price: 59,
+        title: 'Dirty Matcha <br>(Hot/Iced)',
+        price: 165,
     },
     {
         id: 1,
         image: '../images/HB.png',
-        title: 'Honey Banana 70ml',
-        price: 44,  
+        title: 'Pure Matcha',
+        price: 160,  
     },    {
         id: 1,
         image: '../images/HB.png',
-        title: 'Honey Banana 85ml',
-        price: 54,  
+        title: 'Mint Chocolate Bliss',
+        price: 180,  
     },    {
         id: 1,
         image: '../images/HB.png',
-        title: 'Honey Banana 100ml',
-        price: 64,  
+        title: 'Oreo Delight',
+        price: 180,  
     },
     {
         id: 2,
         image: '../images/SH.png',
-        title: 'Strawberry Honey 70ml',
-        price: 49,
+        title: 'Strawberry Dream',
+        price: 180,
     },    {
         id: 2,
         image: '../images/SH.png',
-        title: 'Strawberry Honey 85ml',
-        price: 59,
+        title: 'Premium Milo',
+        price: 180,
     },    {
         id: 2,
         image: '../images/SH.png',
-        title: 'Strawberry Honey 100ml',
-        price: 69,
+        title: 'Sweet Banana',
+        price: 180,
     },
 ];
 const categories = [...new Set(product.map((item)=>
@@ -63,7 +63,7 @@ document.getElementById('root').innerHTML = categories.map((item)=>
             </div>
         <div class='bottom'>
         <p>${title}</p>
-        <h2>$ ${price}.00</h2>`+
+        <h2>₱ ${price}.00</h2>`+
         "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
         `</div>
         </div>`
@@ -86,21 +86,21 @@ function displaycart(){
     document.getElementById("count").innerHTML=cart.length;
     if(cart.length==0){
         document.getElementById('cartItem').innerHTML = "Your cart is empty";
-        document.getElementById("total").innerHTML = "$ "+0+".00";
+        document.getElementById("total").innerHTML = "₱ "+0+".00";
     }
     else{
         document.getElementById("cartItem").innerHTML = cart.map((items)=>
         {
             var {image, title, price} = items;
             total=total+price;
-            document.getElementById("total").innerHTML = "$ "+total+".00";
+            document.getElementById("total").innerHTML = "₱ "+total+".00";
             return(
                 `<div class='cart-item'>
                 <div class='row-img'>
                     <img class='rowimg' src=${image}>
                 </div>
                 <p style='font-size:12px;'>${title}</p>
-                <h2 style='font-size: 15px;'>$ ${price}.00</h2>`+
+                <h2 style='font-size: 15px;'>₱ ${price}.00</h2>`+
                 "<i class='fa-solid fa-trash' onclick='delElement("+ (j++) +")'></i></div>"
             );
         }).join('');
